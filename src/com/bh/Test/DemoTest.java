@@ -58,6 +58,7 @@ public class DemoTest {
                     }
                     break;
                 case "3":
+                    //
                 default:
                     //对于3或者其他数字的选择，都直接退出系统
                     System.exit(0);

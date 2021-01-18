@@ -25,7 +25,7 @@ public class UserDaoImpl implements UserDao {
      * @return
      */
     @Override
-    public boolean Login(String name, String pass) {
+    public boolean login(String name, String pass) {
         boolean flag = false;
         try {
             //创建高效字符输入流来读取数据
@@ -43,7 +43,7 @@ public class UserDaoImpl implements UserDao {
         return flag;
     }
 
-    public boolean Login(String name) {
+    public boolean login(String name) {
         boolean flag = false;
         try {
             //创建高效字符输入流来读取数据
@@ -66,8 +66,8 @@ public class UserDaoImpl implements UserDao {
      * 注册
      */
     @Override
-    public void Sign(User user) throws IOException {
-        if (Login(user.getName())) {
+    public void sign(User user) throws IOException {
+        if (login(user.getName())) {
             System.out.println("用户名已经注册,请直接登录");
         }else {
             //把用户信息存进文件里
