@@ -6,14 +6,15 @@ import com.bh.pojo.User;
 import java.io.*;
 
 public class UserDaoImpl implements UserDao {
-
+    static File file = new File("user.txt");
     //随着类的加载而加载
     static {
         try {
-            File file = new File("user.txt");
+
             file.createNewFile();
         } catch (IOException e) {
-            e.printStackTrace();
+            System.out.println("文件名已经存在");
+//            e.printStackTrace();
         }
     }
 
@@ -29,7 +30,7 @@ public class UserDaoImpl implements UserDao {
         boolean flag = false;
         try {
             //创建高效字符输入流来读取数据
-            BufferedReader br = new BufferedReader(new FileReader("user.txt"));
+            BufferedReader br = new BufferedReader(new FileReader(file));
             String line;
             while ((line = br.readLine()) != null) {
                 String[] s = line.split(":");
@@ -55,7 +56,7 @@ public class UserDaoImpl implements UserDao {
         boolean flag = false;
         try {
             //创建高效字符输入流来读取数据
-            BufferedReader br = new BufferedReader(new FileReader("user.txt"));
+            BufferedReader br = new BufferedReader(new FileReader(file));
             String line;
             while ((line = br.readLine()) != null) {
                 String[] s = line.split(":");
@@ -83,7 +84,7 @@ public class UserDaoImpl implements UserDao {
             //把用户信息存进文件里
             String info = user.getName() + ":" + user.getPassword();
             try {
-                BufferedWriter bw = new BufferedWriter(new FileWriter("user.txt", true));
+                BufferedWriter bw = new BufferedWriter(new FileWriter(file, true));
 
                 bw.write(info);
                 //换行

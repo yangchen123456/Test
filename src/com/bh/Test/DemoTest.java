@@ -37,11 +37,7 @@ public class DemoTest {
                     String passWord = sc.nextLine();
                     User user = new User(userName,passWord);
 
-                    try {
-                        udi.Sign(user);
-                    } catch (IOException e) {
-                        e.printStackTrace();
-                    }
+                    udi.sign(user);
 
                     break;
                 case "2":
@@ -50,7 +46,7 @@ public class DemoTest {
                     String InputName = sc.nextLine();
                     System.out.println("请输入密码：");
                     String InputPassWord = sc.nextLine();
-                    if (udi.Login(InputName,InputPassWord)) {
+                    if (udi.login(InputName,InputPassWord)) {
                         System.out.println("登陆成功！可以玩游戏了！");
                        game.game();
                     }else{
