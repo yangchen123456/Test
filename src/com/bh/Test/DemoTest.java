@@ -18,8 +18,9 @@ public class DemoTest {
             System.out.print("2.登录");
             System.out.print("     ");
             System.out.println("3.退出");
-            System.out.println("请选择功能");
-            String choice = sc.nextLine();
+
+            System.out.println("请选择功能:");
+            String num = sc.nextLine();
 
             //创建一个用户操作类
             UserDaoImpl udi = new UserDaoImpl();
@@ -27,8 +28,7 @@ public class DemoTest {
             // 调用游戏
             Game game = new Game();
 
-            //利用switch循环对选择进行操作
-            switch(choice){
+            switch(num){
                 case "1":
                     System.out.println("欢迎来到注册界面！");
                     System.out.println("请输入用户名：");

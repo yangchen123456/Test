@@ -6,7 +6,8 @@ import com.bh.pojo.User;
 import java.io.*;
 
 public class UserDaoImpl implements UserDao {
-    public static File file = new File("user.txt");
+
+    static File file = new File("user.txt");
 
     //静态代码块，随着类的加载而加载
     static {
