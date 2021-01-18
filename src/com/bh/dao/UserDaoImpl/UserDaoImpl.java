@@ -37,6 +37,8 @@ public class UserDaoImpl implements UserDao {
                     flag = true;
                 }
             }
+            // 关闭资源
+            br.close();
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -45,6 +47,7 @@ public class UserDaoImpl implements UserDao {
 
     /**
      * 判断用户是否注册
+     *
      * @param name
      * @return
      */
@@ -60,6 +63,8 @@ public class UserDaoImpl implements UserDao {
                     flag = true;
                 }
             }
+            // 关闭资源
+            br.close();
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -71,10 +76,10 @@ public class UserDaoImpl implements UserDao {
      * 注册
      */
     @Override
-    public void sign(User user)  {
+    public void sign(User user) {
         if (login(user.getName())) {
             System.out.println("用户名已经注册,请直接登录");
-        }else {
+        } else {
             //把用户信息存进文件里
             String info = user.getName() + ":" + user.getPassword();
             try {
