@@ -43,6 +43,11 @@ public class UserDaoImpl implements UserDao {
         return flag;
     }
 
+    /**
+     * 判断用户是否注册
+     * @param name
+     * @return
+     */
     public boolean login(String name) {
         boolean flag = false;
         try {
