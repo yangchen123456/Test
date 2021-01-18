@@ -13,6 +13,6 @@ public interface UserDao {
     public void Sign(User user) throws IOException;
 
     // 验证用户名是否存在
-    public boolean Login1(String name);
+    public boolean Login(String name);
 
 }

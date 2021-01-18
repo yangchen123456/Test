@@ -7,11 +7,10 @@ import java.io.*;
 
 public class UserDaoImpl implements UserDao {
 
-    static File file = new File("user.txt");
-
-    //静态代码块，随着类的加载而加载
+    //随着类的加载而加载
     static {
         try {
+            File file = new File("user.txt");
             file.createNewFile();
         } catch (IOException e) {
             e.printStackTrace();
@@ -44,7 +43,7 @@ public class UserDaoImpl implements UserDao {
         return flag;
     }
 
-    public boolean Login1(String name) {
+    public boolean Login(String name) {
         boolean flag = false;
         try {
             //创建高效字符输入流来读取数据
@@ -68,7 +67,7 @@ public class UserDaoImpl implements UserDao {
      */
     @Override
     public void Sign(User user) throws IOException {
-        if (Login1(user.getName())) {
+        if (Login(user.getName())) {
             System.out.println("用户名已经注册,请直接登录");
         }else {
             //把用户信息存进文件里
